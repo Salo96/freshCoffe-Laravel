@@ -25,4 +25,4 @@ Route::apiResource('/categorias', CategoriaController::class);
 Route::apiResource('/productos', ProductoController::class);
 
 //autenticacion
-Route::post('/registro', [AuthControlller::class, 'register']);
+Route::post('/registro', [AuthControlller::class, 'register']);//registro
