@@ -7,11 +7,6 @@ use Illuminate\Validation\Rules\Password as pass;
 
 class RegistroRequest extends FormRequest
 {
-    /**
-     * Determine if the user is authorized to make this request.
-     *
-     * @return bool
-     */
     public function authorize()
     {
         return true;
@@ -33,6 +28,15 @@ class RegistroRequest extends FormRequest
                 pass::min(8)->letters()->symbols()->numbers(),// se requiere minimo 8 letras 1 symbolo, numero
                 
             ]
+        ];
+    }
+    public function messages(){
+        return[
+            'name' => 'El nombre es obligatorio',
+            'email.required' => 'El correo es obligatorio',
+            'email.email' => 'El correo no es valido',
+            'email.unique' => 'El usuario ya existe',
+            'password' => 'el pass debe contener al menos 8 letras, un simbolo y un numero'
         ];
     }
 }
