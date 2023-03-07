@@ -12,11 +12,6 @@ class RegistroRequest extends FormRequest
         return true;
     }
 
-    /**
-     * Get the validation rules that apply to the request.
-     *
-     * @return array<string, mixed>
-     */
     public function rules()
     {
         return [
@@ -36,6 +31,7 @@ class RegistroRequest extends FormRequest
             'email.required' => 'El correo es obligatorio',
             'email.email' => 'El correo no es valido',
             'email.unique' => 'El usuario ya existe',
+            'password.confirmed' => 'Las credenciales introducidas no concuerda',
             'password' => 'el pass debe contener al menos 8 letras, un simbolo y un numero'
         ];
     }

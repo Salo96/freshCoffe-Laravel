@@ -17,8 +17,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+//usuario autenticado
+Route::middleware('auth:sanctum')->group(function () {
+
+    Route::get('/user', function (Request $request) {
+        return $request->user();
+    });
+
+    Route::post('/logout', [AuthControlller::class, 'logout']);//login
+
 });
 
 Route::apiResource('/categorias', CategoriaController::class);
@@ -26,3 +33,4 @@ Route::apiResource('/productos', ProductoController::class);
 
 //autenticacion
 Route::post('/registro', [AuthControlller::class, 'register']);//registro
+Route::post('/login', [AuthControlller::class, 'login']);//login
