@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthControlller;
 use App\Http\Controllers\CategoriaController;
+use App\Http\Controllers\PedidoController;
 use App\Http\Controllers\ProductoController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -25,6 +26,8 @@ Route::middleware('auth:sanctum')->group(function () {
     });
 
     Route::post('/logout', [AuthControlller::class, 'logout']);//login
+    
+    Route::apiResource('/pedido', PedidoController::class);//almacenar ordenes
 
 });
 
