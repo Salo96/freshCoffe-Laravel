@@ -50,7 +50,15 @@ class ProductoController extends Controller
      */
     public function update(Request $request, Producto $producto)
     {
-        //
+        // return $producto;
+
+                // return $pedido;
+                $producto->disponible = 0;
+                $producto->save();
+        
+                return[
+                    'producto' => $producto
+                ];
     }
 
     /**
